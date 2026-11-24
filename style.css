@@ -203,7 +203,7 @@ button, input, select, textarea {
 
 .header-main {
   background: var(--white);
-  padding: 18px 0;
+  padding: 16px 0;
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
@@ -218,9 +218,28 @@ button, input, select, textarea {
 }
 
 .header-logo img {
-  height: 48px;
+  height: 46px;
   width: auto;
   object-fit: contain;
+}
+
+.mobile-toggle-btn {
+  display: none;
+  width: 42px;
+  height: 42px;
+  background: var(--primary-light);
+  color: var(--primary);
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.mobile-toggle-btn:hover {
+  background: var(--primary);
+  color: var(--white);
 }
 
 .header-search {
@@ -256,6 +275,7 @@ button, input, select, textarea {
   background: transparent;
   font-size: 14px;
   color: var(--heading);
+  min-width: 0;
 }
 
 .header-search button {
@@ -1082,6 +1102,7 @@ button, input, select, textarea {
   background: transparent;
   font-size: 14px;
   color: var(--heading);
+  min-width: 0;
 }
 
 .news-form button {
@@ -1320,7 +1341,7 @@ button, input, select, textarea {
   font-size: 16px;
   box-shadow: var(--shadow-md);
   cursor: pointer;
-  z-index: 99;
+  z-index: 996;
   transition: var(--transition);
 }
 
@@ -1348,42 +1369,19 @@ button, input, select, textarea {
 }
 
 @media (max-width: 991px) {
-  .header-main .container {
-    flex-wrap: wrap;
-  }
-  .header-search {
-    order: 3;
-    max-width: 100%;
-    width: 100%;
-  }
-  .navbar-main .container {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 10px 15px;
-  }
-  .navbar-menu {
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 10px 0;
-  }
-  .navbar-category-btn {
-    border-radius: var(--radius);
-  }
-  .navbar-offer-badge {
-    display: none;
-  }
   .banner-content-wrap {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 30px;
   }
   .banner-desc {
-    margin: 0 auto 30px;
+    margin: 0 auto 25px;
   }
   .banner-btns {
     justify-content: center;
   }
   .banner-title {
-    font-size: 32px;
+    font-size: 30px;
   }
   .featured-grid {
     grid-template-columns: 1fr;
@@ -1403,46 +1401,132 @@ button, input, select, textarea {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .header-top {
     display: none;
   }
+  .navbar-main {
+    display: none;
+  }
+  .header-search {
+    display: none;
+  }
+  .header-action-item.user-item,
+  .header-action-item.wishlist-item,
+  .header-action-text {
+    display: none;
+  }
+  .header-main {
+    padding: 10px 0;
+  }
+  .header-main .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+  }
+  .mobile-toggle-btn {
+    display: flex;
+    order: 1;
+  }
+  .header-logo {
+    display: flex;
+    order: 2;
+    margin: 0 auto;
+  }
+  .header-logo img {
+    height: 38px;
+  }
+  .header-actions {
+    display: flex;
+    order: 3;
+    gap: 0;
+  }
+  .header-action-item.cart-item {
+    display: flex;
+  }
+  .header-action-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 16px;
+  }
   .banner-title {
-    font-size: 26px;
+    font-size: 24px;
+    line-height: 1.4;
+  }
+  .banner-desc {
+    font-size: 14px;
   }
   .banner-img img {
-    max-height: 280px;
+    max-height: 250px;
   }
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
+  .product-card {
+    padding: 12px;
+  }
+  .product-media {
+    height: 140px;
+  }
+  .product-media img {
+    max-height: 120px;
+  }
+  .product-title {
+    font-size: 13px;
+    height: 38px;
+  }
+  .product-price .current {
+    font-size: 14px;
+  }
+  .product-add-btn {
+    font-size: 12px;
+    padding: 8px 0;
+  }
   .suggest-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .suggest-card {
+    height: 95px;
   }
   .brands-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .brand-card {
+    padding: 15px 10px;
   }
   .intro-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
   .blog-grid {
     grid-template-columns: 1fr;
   }
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 25px;
   }
   .feature-card {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 15px;
   }
   .feature-media {
-    flex: 0 0 160px;
+    flex: 0 0 140px;
     width: 100%;
   }
   .feature-footer {
     flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .feature-add-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -1452,9 +1536,6 @@ button, input, select, textarea {
   }
   .suggest-grid {
     grid-template-columns: 1fr;
-  }
-  .header-actions .header-action-text {
-    display: none;
   }
   .banner-btns {
     flex-direction: column;
